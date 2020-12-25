@@ -21,6 +21,7 @@ import com.example.nideshop.base.BasePresenter;
 import com.example.nideshop.bean.HomeBean;
 import com.example.nideshop.interfaces.HomeContract;
 import com.example.nideshop.presenter.HomePresenterImpl;
+import com.example.nideshop.view.adapter.HomeIntervalAdapter;
 import com.example.nideshop.view.adapter.HomeLinearAdapter;
 
 import java.util.ArrayList;
@@ -64,19 +65,33 @@ public class HomeFragment extends BaseFragment<HomePresenterImpl> implements Hom
         rv_home.setRecycledViewPool(recycledViewPool);
         recycledViewPool.setMaxRecycledViews(0, 10);
 
+        //banner+interval
         LinearLayoutHelper linearLayoutHelper = new LinearLayoutHelper();
-
         linearLayoutHelper.setItemCount(2);
         linearLayoutHelper.setBgColor(Color.WHITE);
-
         HomeLinearAdapter homeLinearAdapter = new HomeLinearAdapter(getActivity(), bannerlist, channellist, linearLayoutHelper);
 
-        new GridLayoutHelper()
+        //品牌供应商直供
+        LinearLayoutHelper linearHelper = new LinearLayoutHelper();
+        linearHelper.setItemCount(1);
+        linearHelper.setMarginTop(20);
+        linearHelper.setBgColor(Color.WHITE);
+        HomeIntervalAdapter intervalAdapter = new HomeIntervalAdapter(getActivity(), "品牌供应商直供", linearHelper);
+
+        //brand
+        GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(2);
+        // 公共属性
+        gridLayoutHelper.setItemCount(4);// 设置布局里Item个数
+        // gridLayoutHelper特有属性（下面会详细说明）
+        gridLayoutHelper.setAutoExpand(false);//是否自动填充空白区域
+        gridLayoutHelper.setSpanCount(2);// 设置每行多少个网格
+
 
 
 
         DelegateAdapter delegateAdapter = new DelegateAdapter(layoutManager, true);
         delegateAdapter.addAdapter(homeLinearAdapter);
+        delegateAdapter.addAdapter(intervalAdapter);
 
         rv_home.setLayoutManager(layoutManager);
         rv_home.setAdapter(delegateAdapter);
