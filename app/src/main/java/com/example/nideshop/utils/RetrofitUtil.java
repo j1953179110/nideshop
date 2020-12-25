@@ -61,10 +61,10 @@ public class RetrofitUtil implements INetWorkInterface {
                             String string = responseBody.string();
                             Type[] genericInterfaces = iCallBack.getClass().getGenericInterfaces();
                             Type[] actualTypeArguments = ((ParameterizedType) genericInterfaces[0]).getActualTypeArguments();
-                            Type t = actualTypeArguments[0];
+                            Type actualTypeArgument = actualTypeArguments[0];
                             Gson gson = new Gson();
-                            T o = gson.fromJson(string, t);
-                            iCallBack.Success(o);
+                            T json = gson.fromJson(string, actualTypeArgument);
+                            iCallBack.Success(json);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

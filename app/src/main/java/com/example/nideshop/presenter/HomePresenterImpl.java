@@ -11,7 +11,7 @@ public class HomePresenterImpl extends BasePresenter<HomeContract.IHomeView, Hom
 
     @Override
     public void getHome() {
-        iModel.getHome(URLContract.HomeList, new ICallBack<HomeBean>() {
+        iModel.getHome(URLContract.HOMELIST, new ICallBack<HomeBean>() {
             @Override
             public void Success(HomeBean homeBean) {
                 iView.getHomeReturn(homeBean);

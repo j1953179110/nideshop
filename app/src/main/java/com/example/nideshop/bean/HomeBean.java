@@ -362,8 +362,8 @@ public class HomeBean {
              * name : CK制造商
              * list_pic_url : http://yanxuan.nosdn.127.net/658f09b7ec522d31742b47b914d64338.png
              * simple_desc : 严选寻访Calvin Klein品牌的制造商，
-             深入世界领带第一生产地，设计与品质并重，
-             致力于给消费者带来优质典雅的服饰用品。
+             * 深入世界领带第一生产地，设计与品质并重，
+             * 致力于给消费者带来优质典雅的服饰用品。
              * pic_url : http://yanxuan.nosdn.127.net/fb139c9f11a10deb41beeb42aaad488e.png
              * sort_order : 1
              * is_show : 1
@@ -381,7 +381,7 @@ public class HomeBean {
             private String pic_url;
             private int sort_order;
             private int is_show;
-            private int floor_price;
+            private float floor_price;
             private String app_list_pic_url;
             private int is_new;
             private String new_pic_url;
@@ -443,11 +443,11 @@ public class HomeBean {
                 this.is_show = is_show;
             }
 
-            public int getFloor_price() {
+            public float getFloor_price() {
                 return floor_price;
             }
 
-            public void setFloor_price(int floor_price) {
+            public void setFloor_price(float floor_price) {
                 this.floor_price = floor_price;
             }
 
@@ -489,12 +489,12 @@ public class HomeBean {
              * id : 314
              * title : 关爱他成长的每一个足迹
              * content : <img src="//yanxuan.nosdn.127.net/75c55a13fde5eb2bc2dd6813b4c565cc.jpg">
-             <img src="//yanxuan.nosdn.127.net/e27e1de2b271a28a21c10213b9df7e95.jpg">
-             <img src="//yanxuan.nosdn.127.net/9d413d1d28f753cb19096b533d53418d.jpg">
-             <img src="//yanxuan.nosdn.127.net/64b0f2f350969e9818a3b6c43c217325.jpg">
-             <img src="//yanxuan.nosdn.127.net/a668e6ae7f1fa45565c1eac221787570.jpg">
-             <img src="//yanxuan.nosdn.127.net/0d4004e19728f2707f08f4be79bbc774.jpg">
-             <img src="//yanxuan.nosdn.127.net/79ee021bbe97de7ecda691de6787241f.jpg">
+             * <img src="//yanxuan.nosdn.127.net/e27e1de2b271a28a21c10213b9df7e95.jpg">
+             * <img src="//yanxuan.nosdn.127.net/9d413d1d28f753cb19096b533d53418d.jpg">
+             * <img src="//yanxuan.nosdn.127.net/64b0f2f350969e9818a3b6c43c217325.jpg">
+             * <img src="//yanxuan.nosdn.127.net/a668e6ae7f1fa45565c1eac221787570.jpg">
+             * <img src="//yanxuan.nosdn.127.net/0d4004e19728f2707f08f4be79bbc774.jpg">
+             * <img src="//yanxuan.nosdn.127.net/79ee021bbe97de7ecda691de6787241f.jpg">
              * avatar : https://yanxuan.nosdn.127.net/14943186689221563.png
              * item_pic_url : https://yanxuan.nosdn.127.net/14943267735961674.jpg
              * subtitle : 专业运动品牌同厂，毛毛虫鞋买二送一
@@ -515,7 +515,7 @@ public class HomeBean {
             private String item_pic_url;
             private String subtitle;
             private int topic_category_id;
-            private int price_info;
+            private float price_info;
             private String read_count;
             private String scene_pic_url;
             private int topic_template_id;
@@ -579,11 +579,11 @@ public class HomeBean {
                 this.topic_category_id = topic_category_id;
             }
 
-            public int getPrice_info() {
+            public float getPrice_info() {
                 return price_info;
             }
 
-            public void setPrice_info(int price_info) {
+            public void setPrice_info(float price_info) {
                 this.price_info = price_info;
             }
 
@@ -682,7 +682,7 @@ public class HomeBean {
                 private int id;
                 private String name;
                 private String list_pic_url;
-                private int retail_price;
+                private float retail_price;
 
                 public int getId() {
                     return id;
@@ -708,11 +708,11 @@ public class HomeBean {
                     this.list_pic_url = list_pic_url;
                 }
 
-                public int getRetail_price() {
+                public float getRetail_price() {
                     return retail_price;
                 }
 
-                public void setRetail_price(int retail_price) {
+                public void setRetail_price(float retail_price) {
                     this.retail_price = retail_price;
                 }
             }

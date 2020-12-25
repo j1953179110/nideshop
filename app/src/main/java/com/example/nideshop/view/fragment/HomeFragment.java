@@ -54,6 +54,8 @@ public class HomeFragment extends BaseFragment<HomePresenterImpl> implements Hom
         linearLayoutHelper.setMarginTop(5);
         linearLayoutHelper.setMarginBottom(5);
         linearLayoutHelper.setBgColor(Color.WHITE);
+
+        
     }
 
     @Override
