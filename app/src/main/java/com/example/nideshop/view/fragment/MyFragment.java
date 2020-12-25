@@ -1,4 +1,4 @@
-package com.example.nideshop.fragment;
+package com.example.nideshop.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

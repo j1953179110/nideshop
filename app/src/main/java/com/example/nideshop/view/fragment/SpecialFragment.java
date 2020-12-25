@@ -1,4 +1,4 @@
-package com.example.nideshop.fragment;
+package com.example.nideshop.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.nideshop.R;
 
-public class ShoppingFragment extends Fragment {
+public class SpecialFragment extends Fragment {
 
-    public ShoppingFragment() {
+    public SpecialFragment() {
         // Required empty public constructor
     }
 
@@ -21,6 +21,6 @@ public class ShoppingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shopping, container, false);
+        return inflater.inflate(R.layout.fragment_special, container, false);
     }
 }

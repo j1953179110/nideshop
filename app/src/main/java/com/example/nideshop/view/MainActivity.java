@@ -1,4 +1,4 @@
-package com.example.nideshop;
+package com.example.nideshop.view;
 
 import android.os.Bundle;
 import android.widget.RadioButton;
@@ -10,11 +10,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.nideshop.fragment.ClassifyFragment;
-import com.example.nideshop.fragment.HomeFragment;
-import com.example.nideshop.fragment.MyFragment;
-import com.example.nideshop.fragment.ShoppingFragment;
-import com.example.nideshop.fragment.SpecialFragment;
+import com.example.nideshop.R;
+import com.example.nideshop.view.fragment.ClassifyFragment;
+import com.example.nideshop.view.fragment.HomeFragment;
+import com.example.nideshop.view.fragment.MyFragment;
+import com.example.nideshop.view.fragment.ShoppingFragment;
+import com.example.nideshop.view.fragment.SpecialFragment;
 
 import java.util.ArrayList;
 

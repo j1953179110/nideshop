@@ -1,6 +1,5 @@
 package com.example.nideshop.bean;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class HomeBean {
@@ -38,7 +37,7 @@ public class HomeBean {
         this.data = data;
     }
 
-    public static class DataBean implements Serializable {
+    public static class DataBean {
         private List<BannerBean> banner;
         private List<ChannelBean> channel;
         private List<NewGoodsListBean> newGoodsList;
@@ -103,7 +102,7 @@ public class HomeBean {
             this.categoryList = categoryList;
         }
 
-        public static class BannerBean implements Serializable {
+        public static class BannerBean {
             /**
              * id : 1
              * ad_position_id : 1
@@ -199,7 +198,7 @@ public class HomeBean {
             }
         }
 
-        public static class ChannelBean implements Serializable {
+        public static class ChannelBean {
             /**
              * id : 1
              * name : 居家
@@ -255,7 +254,7 @@ public class HomeBean {
             }
         }
 
-        public static class NewGoodsListBean implements Serializable {
+        public static class NewGoodsListBean {
             /**
              * id : 1116011
              * name : 蔓越莓曲奇 200克
@@ -301,7 +300,7 @@ public class HomeBean {
             }
         }
 
-        public static class HotGoodsListBean implements Serializable {
+        public static class HotGoodsListBean {
             /**
              * id : 1006013
              * name : 双宫茧桑蚕丝被 空调被
@@ -357,7 +356,7 @@ public class HomeBean {
             }
         }
 
-        public static class BrandListBean implements Serializable {
+        public static class BrandListBean {
             /**
              * id : 1026000
              * name : CK制造商
@@ -485,7 +484,7 @@ public class HomeBean {
             }
         }
 
-        public static class TopicListBean implements Serializable {
+        public static class TopicListBean {
             /**
              * id : 314
              * title : 关爱他成长的每一个足迹
@@ -637,7 +636,7 @@ public class HomeBean {
             }
         }
 
-        public static class CategoryListBean implements Serializable {
+        public static class CategoryListBean {
             /**
              * id : 1005000
              * name : 居家
@@ -672,7 +671,7 @@ public class HomeBean {
                 this.goodsList = goodsList;
             }
 
-            public static class GoodsListBean implements Serializable {
+            public static class GoodsListBean {
                 /**
                  * id : 1009024
                  * name : 日式和风懒人沙发
