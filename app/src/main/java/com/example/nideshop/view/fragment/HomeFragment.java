@@ -21,6 +21,7 @@ import com.example.nideshop.base.BasePresenter;
 import com.example.nideshop.bean.HomeBean;
 import com.example.nideshop.interfaces.HomeContract;
 import com.example.nideshop.presenter.HomePresenterImpl;
+import com.example.nideshop.view.adapter.HomeGridAdapter;
 import com.example.nideshop.view.adapter.HomeIntervalAdapter;
 import com.example.nideshop.view.adapter.HomeLinearAdapter;
 
@@ -83,18 +84,30 @@ public class HomeFragment extends BaseFragment<HomePresenterImpl> implements Hom
         // 公共属性
         gridLayoutHelper.setItemCount(4);// 设置布局里Item个数
         // gridLayoutHelper特有属性（下面会详细说明）
-        gridLayoutHelper.setAutoExpand(false);//是否自动填充空白区域
+        gridLayoutHelper.setWeights(new float[]{50, 50});//设置每行中 每个网格宽度 占 每行总宽度 的比例
+        gridLayoutHelper.setVGap(1);// 控制子元素之间的垂直间距
+        gridLayoutHelper.setHGap(1);// 控制子元素之间的水平间距
+        gridLayoutHelper.setBgColor(Color.WHITE);
         gridLayoutHelper.setSpanCount(2);// 设置每行多少个网格
+        HomeGridAdapter homeGridAdapter = new HomeGridAdapter(getActivity(), brandlist, gridLayoutHelper);
 
-
+        //周一周四新品首发
+        LinearLayoutHelper MondayHelper = new LinearLayoutHelper();
+        MondayHelper.setItemCount(1);
+        MondayHelper.setMarginTop(20);
+        MondayHelper.setBgColor(Color.WHITE);
+        HomeIntervalAdapter MondayAdapter = new HomeIntervalAdapter(getActivity(), "周一周四·新品首发", linearHelper);
 
 
         DelegateAdapter delegateAdapter = new DelegateAdapter(layoutManager, true);
         delegateAdapter.addAdapter(homeLinearAdapter);
         delegateAdapter.addAdapter(intervalAdapter);
+        delegateAdapter.addAdapter(homeGridAdapter);
+        delegateAdapter.addAdapter(MondayAdapter);
 
         rv_home.setLayoutManager(layoutManager);
         rv_home.setAdapter(delegateAdapter);
+
     }
 
     @Override
