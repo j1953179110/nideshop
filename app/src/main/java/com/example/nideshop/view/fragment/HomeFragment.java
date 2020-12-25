@@ -13,8 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.example.nideshop.R;
+import com.example.nideshop.base.BaseFragment;
+import com.example.nideshop.base.BasePresenter;
+import com.example.nideshop.bean.HomeBean;
+import com.example.nideshop.interfaces.HomeContract;
+import com.example.nideshop.presenter.HomePresenterImpl;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment implements HomeContract.IHomeView {
 
     private Button et_search;
     private RecyclerView rv_home;
@@ -25,15 +30,12 @@ public class HomeFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View inflate = inflater.inflate(R.layout.fragment_home, container, false);
-        initView(inflate);
-        return inflate;
+    protected void initData() {
+        presenter.
     }
 
-    private void initView(View inflate) {
+    @Override
+    protected void initView(View inflate) {
         et_search = (Button) inflate.findViewById(R.id.et_search);
         rv_home = (RecyclerView) inflate.findViewById(R.id.rv_home);
 
@@ -51,5 +53,22 @@ public class HomeFragment extends Fragment {
         linearLayoutHelper.setMarginTop(5);
         linearLayoutHelper.setMarginBottom(5);
         linearLayoutHelper.setBgColor(Color.WHITE);
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return new HomePresenterImpl();
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.fragment_home;
+    }
+
+
+
+    @Override
+    public void getHomeReturn(HomeBean home) {
+
     }
 }

@@ -1,5 +1,9 @@
 package com.example.nideshop.interfaces;
 
-public
-interface ICallBack {
+import com.example.nideshop.bean.HomeBean;
+
+public interface ICallBack<T> {
+    void Success(T t);
+
+    void Fail(String error);
 }
