@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_home"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/rg_tab"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            style="@style/radiogroup_tablayout"
+            android:checked="true"
+            android:drawableTop="@drawable/home_select"
+            android:text="首页" />
+
+        <RadioButton
+            android:id="@+id/rb_special"
+            style="@style/radiogroup_tablayout"
+            android:drawableTop="@drawable/special_select"
+
+            android:text="专题" />
+
+        <RadioButton
+            android:id="@+id/rb_classify"
+            style="@style/radiogroup_tablayout"
+            android:drawableTop="@drawable/classify_select"
+
+            android:text="分类" />
+
+        <RadioButton
+            android:id="@+id/rb_shopping"
+            style="@style/radiogroup_tablayout"
+            android:drawableTop="@drawable/shopping_select"
+
+            android:text="购物车" />
+
+        <RadioButton
+            android:id="@+id/rb_my"
+            style="@style/radiogroup_tablayout"
+            android:drawableTop="@drawable/my_select"
+
+            android:text="我的" />
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
