@@ -2,6 +2,7 @@ package com.example.nideshop.view.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ import com.example.nideshop.bean.HomeBean;
 import com.example.nideshop.interfaces.HomeContract;
 import com.example.nideshop.presenter.HomePresenterImpl;
 
-public class HomeFragment extends BaseFragment implements HomeContract.IHomeView {
+public class HomeFragment extends BaseFragment<HomePresenterImpl> implements HomeContract.IHomeView {
 
     private Button et_search;
     private RecyclerView rv_home;
@@ -31,7 +32,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.IHomeView
 
     @Override
     protected void initData() {
-        presenter.
+        presenter.getHome();
     }
 
     @Override
@@ -56,7 +57,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.IHomeView
     }
 
     @Override
-    protected BasePresenter createPresenter() {
+    protected HomePresenterImpl createPresenter() {
         return new HomePresenterImpl();
     }
 
@@ -66,9 +67,12 @@ public class HomeFragment extends BaseFragment implements HomeContract.IHomeView
     }
 
 
-
     @Override
     public void getHomeReturn(HomeBean home) {
-
+        if(home != null){
+            Log.d("TAG","请求成功");
+        }else{
+            Log.d("TAG","请求失败");
+        }
     }
 }
