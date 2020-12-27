@@ -22,12 +22,12 @@ import java.util.ArrayList;
 public class HomeMonDayGridAdapter extends DelegateAdapter.Adapter {
 
     private Context context;
-    private ArrayList<HomeBean.DataBean.BrandListBean> brandlist;
+    private ArrayList<HomeBean.DataBean.NewGoodsListBean> newgoodlist;
     private GridLayoutHelper gridLayoutHelper;
 
-    public HomeMonDayGridAdapter(Context context, ArrayList<HomeBean.DataBean.BrandListBean> brandlist, GridLayoutHelper gridLayoutHelper) {
+    public HomeMonDayGridAdapter(Context context, ArrayList<HomeBean.DataBean.NewGoodsListBean> newgoodlist, GridLayoutHelper gridLayoutHelper) {
         this.context = context;
-        this.brandlist = brandlist;
+        this.newgoodlist = newgoodlist;
         this.gridLayoutHelper = gridLayoutHelper;
     }
 
@@ -39,17 +39,17 @@ public class HomeMonDayGridAdapter extends DelegateAdapter.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.layout_brand, parent, false);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.layout_newgood, parent, false);
         return new GridViewHolder(inflate);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        HomeBean.DataBean.BrandListBean brandListBean = brandlist.get(position);
+        HomeBean.DataBean.NewGoodsListBean newGoodsListBean = newgoodlist.get(position);
         GridViewHolder gridViewHolder = (GridViewHolder) holder;
-        Glide.with(context).load(brandListBean.getNew_pic_url()).into(gridViewHolder.iv_brand);
-        gridViewHolder.tv_name.setText(brandListBean.getName());
-        gridViewHolder.tv_price.setText(brandListBean.getFloor_price()+"元起");
+        Glide.with(context).load(newGoodsListBean.getList_pic_url()).into(gridViewHolder.tv_newgood);
+        gridViewHolder.tv_goodname.setText(newGoodsListBean.getName());
+        gridViewHolder.tv_goodprice.setText("￥" + newGoodsListBean.getRetail_price());
     }
 
     @Override
@@ -58,15 +58,15 @@ public class HomeMonDayGridAdapter extends DelegateAdapter.Adapter {
     }
 
     private class GridViewHolder extends RecyclerView.ViewHolder {
-        ImageView iv_brand;
-        TextView tv_name;
-        TextView tv_price;
+        ImageView tv_newgood;
+        TextView tv_goodname;
+        TextView tv_goodprice;
 
         public GridViewHolder(View inflate) {
             super(inflate);
-            iv_brand = inflate.findViewById(R.id.iv_brand);
-            tv_name = inflate.findViewById(R.id.tv_name);
-            tv_price = inflate.findViewById(R.id.tv_price);
+            tv_newgood = inflate.findViewById(R.id.iv_newgood);
+            tv_goodname = inflate.findViewById(R.id.tv_goodname);
+            tv_goodprice = inflate.findViewById(R.id.tv_goodprice);
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.example.nideshop.view.adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +19,13 @@ import com.example.nideshop.bean.HomeBean;
 
 import java.util.ArrayList;
 
-public class HomeGridAdapter extends DelegateAdapter.Adapter {
+public class HomeSingleLayoutAdapter extends DelegateAdapter.Adapter {
 
     private Context context;
     private ArrayList<HomeBean.DataBean.BrandListBean> brandlist;
     private GridLayoutHelper gridLayoutHelper;
 
-    public HomeGridAdapter(Context context, ArrayList<HomeBean.DataBean.BrandListBean> brandlist, GridLayoutHelper gridLayoutHelper) {
+    public HomeSingleLayoutAdapter(Context context, ArrayList<HomeBean.DataBean.BrandListBean> brandlist, GridLayoutHelper gridLayoutHelper) {
         this.context = context;
         this.brandlist = brandlist;
         this.gridLayoutHelper = gridLayoutHelper;

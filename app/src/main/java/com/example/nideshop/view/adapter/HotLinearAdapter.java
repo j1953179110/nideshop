@@ -21,14 +21,14 @@ import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
 
-public class HostLinearAdapter extends DelegateAdapter.Adapter {
+public class HotLinearAdapter extends DelegateAdapter.Adapter {
 
     private Context context;
     private ArrayList<HomeBean.DataBean.HotGoodsListBean> hotgoodlist;
     private LinearLayoutHelper linearLayoutHelper;
 
 
-    public HostLinearAdapter(Context context, ArrayList<HomeBean.DataBean.HotGoodsListBean> hotgoodlist, LinearLayoutHelper linearLayoutHelper) {
+    public HotLinearAdapter(Context context, ArrayList<HomeBean.DataBean.HotGoodsListBean> hotgoodlist, LinearLayoutHelper linearLayoutHelper) {
         this.context = context;
         this.hotgoodlist = hotgoodlist;
         this.linearLayoutHelper = linearLayoutHelper;

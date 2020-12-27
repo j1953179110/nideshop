@@ -50,7 +50,7 @@ public class HomeGridAdapter extends DelegateAdapter.Adapter {
         GridViewHolder gridViewHolder = (GridViewHolder) holder;
         Glide.with(context).load(brandListBean.getNew_pic_url()).into(gridViewHolder.iv_brand);
         gridViewHolder.tv_name.setText(brandListBean.getName());
-        gridViewHolder.tv_price.setText(brandListBean.getFloor_price()+"元起");
+        gridViewHolder.tv_price.setText(brandListBean.getFloor_price() + "元起");
     }
 
     @Override

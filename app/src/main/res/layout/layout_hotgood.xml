@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:background="#AFAFAF"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_hotgood"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:src="@drawable/hotgoods"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view" />
+
+    <TextView
+        android:id="@+id/tv_hot_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textSize="18sp"
+        android:text="双宫茧桑蚕丝被"
+        app:layout_constraintBottom_toTopOf="@id/tv_hot_brief"
+        app:layout_constraintLeft_toRightOf="@id/iv_hotgood" />
+
+    <TextView
+        android:id="@+id/tv_hot_brief"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="一级桑蚕丝，吸湿透气柔软"
+        android:textColor="#CBCBCB"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_hotgood"
+        app:layout_constraintLeft_toRightOf="@id/iv_hotgood"
+        app:layout_constraintTop_toTopOf="@id/iv_hotgood" />
+
+    <TextView
+        android:id="@+id/tv_hot_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="650"
+        android:textColor="#ED1717"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@id/iv_hotgood"
+        app:layout_constraintTop_toBottomOf="@id/tv_hot_brief" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
