@@ -146,6 +146,7 @@ public class HomeFragment extends BaseFragment<HomePresenterImpl> implements Hom
 
         LinearLayoutHelper singleLayoutHelper = new LinearLayoutHelper();
         singleLayoutHelper.setItemCount(1);
+        singleLayoutHelper.setPaddingBottom(50);
         singleLayoutHelper.setBgColor(Color.WHITE);
         HomeSingleLayoutAdapter singleLayoutAdapter = new HomeSingleLayoutAdapter(getActivity(), topiclist, singleLayoutHelper);
 
@@ -183,10 +184,12 @@ public class HomeFragment extends BaseFragment<HomePresenterImpl> implements Hom
             // 公共属性
             categorygridLayoutHelper.setItemCount(7);// 设置布局里Item个数
             // gridLayoutHelper特有属性（下面会详细说明）
-            categorygridLayoutHelper.setWeights(new float[]{50, 50});//设置每行中 每个网格宽度 占 每行总宽度 的比例
-            categorygridLayoutHelper.setVGap(1);// 控制子元素之间的垂直间距
-            categorygridLayoutHelper.setHGap(1);// 控制子元素之间的水平间距
+
+            categorygridLayoutHelper.setVGap(20);// 控制子元素之间的垂直间距
+            categorygridLayoutHelper.setHGap(20);// 控制子元素之间的水平间距
+            categorygridLayoutHelper.setPaddingBottom(50);
             categorygridLayoutHelper.setBgColor(Color.WHITE);
+            categorygridLayoutHelper.setPaddingLeft(30);
             categorygridLayoutHelper.setSpanCount(2);// 设置每行多少个网格
             HomeCategoryGridAdapter homecatGridAdapter = new HomeCategoryGridAdapter(getActivity(), (ArrayList<HomeBean.DataBean.CategoryListBean.GoodsListBean>) goodsList, categorygridLayoutHelper);
             delegateAdapter.addAdapter(jujiaAdapter);

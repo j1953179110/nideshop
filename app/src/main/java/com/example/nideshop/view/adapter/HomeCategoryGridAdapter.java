@@ -47,9 +47,9 @@ public class HomeCategoryGridAdapter extends DelegateAdapter.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         GridViewHolder gridViewHolder = (GridViewHolder) holder;
         HomeBean.DataBean.CategoryListBean.GoodsListBean goodsListBean = goodlist.get(position);
-        Glide.with(context).load(goodsListBean.getList_pic_url()).into(gridViewHolder.iv_brand);
-        gridViewHolder.tv_name.setText(goodsListBean.getName());
-        gridViewHolder.tv_price.setText("￥"+goodsListBean.getRetail_price());
+        Glide.with(context).load(goodsListBean.getList_pic_url()).into(gridViewHolder.iv_goodlist);
+        gridViewHolder.tv_listname.setText(goodsListBean.getName());
+        gridViewHolder.tv_listprice.setText("￥"+goodsListBean.getRetail_price());
     }
 
     @Override
@@ -58,15 +58,15 @@ public class HomeCategoryGridAdapter extends DelegateAdapter.Adapter {
     }
 
     private class GridViewHolder extends RecyclerView.ViewHolder {
-        ImageView iv_brand;
-        TextView tv_name;
-        TextView tv_price;
+        ImageView iv_goodlist;
+        TextView tv_listname;
+        TextView tv_listprice;
 
         public GridViewHolder(View inflate) {
             super(inflate);
-            iv_brand = inflate.findViewById(R.id.iv_brand);
-            tv_name = inflate.findViewById(R.id.tv_name);
-            tv_price = inflate.findViewById(R.id.tv_price);
+            iv_goodlist = inflate.findViewById(R.id.iv_goodlist);
+            tv_listname = inflate.findViewById(R.id.tv_listname);
+            tv_listprice = inflate.findViewById(R.id.tv_listprice);
         }
     }
 }

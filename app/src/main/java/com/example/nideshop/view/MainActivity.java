@@ -66,6 +66,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        vpHome.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0) {
+                    rbHome.setChecked(true);
+                } else if (position == 1) {
+                    rbSpecial.setChecked(true);
+                } else if (position == 2) {
+                    rbClassify.setChecked(true);
+                } else if (position == 3) {
+                    rbShopping.setChecked(true);
+                } else {
+                    rbMy.setChecked(true);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
         rgTab.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
