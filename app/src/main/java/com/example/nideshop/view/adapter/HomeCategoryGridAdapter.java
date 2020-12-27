@@ -1,7 +1,6 @@
 package com.example.nideshop.view.adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,15 +19,15 @@ import com.example.nideshop.bean.HomeBean;
 
 import java.util.ArrayList;
 
-public class HomeGridAdapter extends DelegateAdapter.Adapter {
+public class HomeCategoryGridAdapter extends DelegateAdapter.Adapter {
 
     private Context context;
-    private ArrayList<HomeBean.DataBean.BrandListBean> brandlist;
+    private ArrayList<HomeBean.DataBean.CategoryListBean.GoodsListBean> goodlist;
     private GridLayoutHelper gridLayoutHelper;
 
-    public HomeGridAdapter(Context context, ArrayList<HomeBean.DataBean.BrandListBean> brandlist, GridLayoutHelper gridLayoutHelper) {
+    public HomeCategoryGridAdapter(Context context, ArrayList<HomeBean.DataBean.CategoryListBean.GoodsListBean> goodlist, GridLayoutHelper gridLayoutHelper) {
         this.context = context;
-        this.brandlist = brandlist;
+        this.goodlist = goodlist;
         this.gridLayoutHelper = gridLayoutHelper;
     }
 
@@ -40,22 +39,22 @@ public class HomeGridAdapter extends DelegateAdapter.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.layout_brand, parent, false);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.layout_goodlist, parent, false);
         return new GridViewHolder(inflate);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        HomeBean.DataBean.BrandListBean brandListBean = brandlist.get(position);
         GridViewHolder gridViewHolder = (GridViewHolder) holder;
-        Glide.with(context).load(brandListBean.getNew_pic_url()).into(gridViewHolder.iv_brand);
-        gridViewHolder.tv_name.setText(brandListBean.getName());
-        gridViewHolder.tv_price.setText(brandListBean.getFloor_price() + "元起");
+        HomeBean.DataBean.CategoryListBean.GoodsListBean goodsListBean = goodlist.get(position);
+        Glide.with(context).load(goodsListBean.getList_pic_url()).into(gridViewHolder.iv_brand);
+        gridViewHolder.tv_name.setText(goodsListBean.getName());
+        gridViewHolder.tv_price.setText("￥"+goodsListBean.getRetail_price());
     }
 
     @Override
     public int getItemCount() {
-        return 4;
+        return 7;
     }
 
     private class GridViewHolder extends RecyclerView.ViewHolder {

@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_topic"
+        android:layout_width="380dp"
+        android:layout_height="215dp"
+        android:src="@drawable/topic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_top_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="关爱他成长的每一个足迹"
+        android:textSize="17sp"
+        app:layout_constraintLeft_toLeftOf="@id/iv_topic"
+        app:layout_constraintTop_toBottomOf="@id/iv_topic" />
+
+    <TextView
+        android:id="@+id/tv_top_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="10dp"
+        android:text="650"
+        android:textColor="#ED1717"
+        android:textSize="17sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_top_title"
+        app:layout_constraintTop_toBottomOf="@id/iv_topic" />
+
+    <TextView
+        android:id="@+id/tv_top_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="一级桑蚕丝，吸湿透气柔软"
+        android:textColor="#CBCBCB"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_top_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_top_title" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

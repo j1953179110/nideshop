@@ -39,6 +39,8 @@ public class HomeIntervalAdapter extends DelegateAdapter.Adapter {
         return new LinearViewHolder(inflate);
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         LinearViewHolder linearViewHolder = (LinearViewHolder) holder;

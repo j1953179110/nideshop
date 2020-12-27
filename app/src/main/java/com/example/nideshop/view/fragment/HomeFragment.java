@@ -22,11 +22,14 @@ import com.example.nideshop.base.BasePresenter;
 import com.example.nideshop.bean.HomeBean;
 import com.example.nideshop.interfaces.HomeContract;
 import com.example.nideshop.presenter.HomePresenterImpl;
+import com.example.nideshop.view.adapter.HomeCategoryGridAdapter;
 import com.example.nideshop.view.adapter.HomeGridAdapter;
 import com.example.nideshop.view.adapter.HomeIntervalAdapter;
 import com.example.nideshop.view.adapter.HomeLinearAdapter;
 import com.example.nideshop.view.adapter.HomeMonDayGridAdapter;
+import com.example.nideshop.view.adapter.HomeSingleLayoutAdapter;
 import com.example.nideshop.view.adapter.HotLinearAdapter;
+import com.example.nideshop.view.adapter.TopicAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +43,8 @@ public class HomeFragment extends BaseFragment<HomePresenterImpl> implements Hom
     private ArrayList<HomeBean.DataBean.BrandListBean> brandlist;
     private ArrayList<HomeBean.DataBean.NewGoodsListBean> newgoodlist;
     private ArrayList<HomeBean.DataBean.HotGoodsListBean> hotgoodlist;
+    private ArrayList<HomeBean.DataBean.TopicListBean> topiclist;
+    private ArrayList<HomeBean.DataBean.CategoryListBean> categoryiclist;
 
 
     public HomeFragment() {
@@ -62,6 +67,8 @@ public class HomeFragment extends BaseFragment<HomePresenterImpl> implements Hom
         brandlist = new ArrayList<>();
         newgoodlist = new ArrayList<>();
         hotgoodlist = new ArrayList<>();
+        topiclist = new ArrayList<>();
+        categoryiclist = new ArrayList<>();
     }
 
     public void initAdapter() {
@@ -137,10 +144,16 @@ public class HomeFragment extends BaseFragment<HomePresenterImpl> implements Hom
         choicenessIntervaltLayoutHelper.setBgColor(Color.WHITE);
         HomeIntervalAdapter choicenesstAdapter = new HomeIntervalAdapter(getActivity(), "专题精选", choicenessIntervaltLayoutHelper);
 
-        SingleLayoutHelper singleLayoutHelper = new SingleLayoutHelper();
+        LinearLayoutHelper singleLayoutHelper = new LinearLayoutHelper();
         singleLayoutHelper.setItemCount(1);
         singleLayoutHelper.setBgColor(Color.WHITE);
-        HomeSingleLayoutAdapter singleLayoutHelper = new HomeSingleLayoutAdapter(getActivity(), "专题精选", singleLayoutHelper);
+        HomeSingleLayoutAdapter singleLayoutAdapter = new HomeSingleLayoutAdapter(getActivity(), topiclist, singleLayoutHelper);
+
+
+
+
+
+
 
 
         DelegateAdapter delegateAdapter = new DelegateAdapter(layoutManager, true);
@@ -152,6 +165,36 @@ public class HomeFragment extends BaseFragment<HomePresenterImpl> implements Hom
         delegateAdapter.addAdapter(HostAdapter);
         delegateAdapter.addAdapter(HostLinearAdapter);
         delegateAdapter.addAdapter(choicenesstAdapter);
+        delegateAdapter.addAdapter(singleLayoutAdapter);
+
+        for (int i = 0; i < categoryiclist.size(); i++) {
+            HomeBean.DataBean.CategoryListBean categoryListBean = categoryiclist.get(i);
+            List<HomeBean.DataBean.CategoryListBean.GoodsListBean> goodsList = categoryListBean.getGoodsList();
+            //居家
+            LinearLayoutHelper jujiaIntervaltLayoutHelper = new LinearLayoutHelper();
+            jujiaIntervaltLayoutHelper.setItemCount(1);
+            jujiaIntervaltLayoutHelper.setMarginTop(20);
+            newGoodGridHelper.setPaddingBottom(50);
+            jujiaIntervaltLayoutHelper.setBgColor(Color.WHITE);
+            HomeIntervalAdapter jujiaAdapter = new HomeIntervalAdapter(getActivity(), categoryListBean.getName(), jujiaIntervaltLayoutHelper);
+
+            //jujia
+            GridLayoutHelper categorygridLayoutHelper = new GridLayoutHelper(2);
+            // 公共属性
+            categorygridLayoutHelper.setItemCount(7);// 设置布局里Item个数
+            // gridLayoutHelper特有属性（下面会详细说明）
+            categorygridLayoutHelper.setWeights(new float[]{50, 50});//设置每行中 每个网格宽度 占 每行总宽度 的比例
+            categorygridLayoutHelper.setVGap(1);// 控制子元素之间的垂直间距
+            categorygridLayoutHelper.setHGap(1);// 控制子元素之间的水平间距
+            categorygridLayoutHelper.setBgColor(Color.WHITE);
+            categorygridLayoutHelper.setSpanCount(2);// 设置每行多少个网格
+            HomeCategoryGridAdapter homecatGridAdapter = new HomeCategoryGridAdapter(getActivity(), (ArrayList<HomeBean.DataBean.CategoryListBean.GoodsListBean>) goodsList, categorygridLayoutHelper);
+            delegateAdapter.addAdapter(jujiaAdapter);
+            delegateAdapter.addAdapter(homecatGridAdapter);
+        }
+
+
+
 
         rv_home.setLayoutManager(layoutManager);
         rv_home.setAdapter(delegateAdapter);
@@ -182,7 +225,10 @@ public class HomeFragment extends BaseFragment<HomePresenterImpl> implements Hom
             this.newgoodlist.addAll(newGoodsList);
             List<HomeBean.DataBean.HotGoodsListBean> hotgoodlist = home.getData().getHotGoodsList();
             this.hotgoodlist.addAll(hotgoodlist);
-
+            List<HomeBean.DataBean.TopicListBean> topiclist = home.getData().getTopicList();
+            this.topiclist.addAll(topiclist);
+            List<HomeBean.DataBean.CategoryListBean> categoryiclist = home.getData().getCategoryList();
+            this.categoryiclist.addAll(categoryiclist);
             initAdapter();
         } else {
             Log.d("TAG", "请求失败");
